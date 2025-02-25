@@ -1,0 +1,19 @@
+name: lab3yamal
+
+on: push
+
+jobs:
+  job1:
+    name: first job
+    runs-on: ubuntu-latest
+    steps:
+      - run: date
+  job2:
+    runs-on: windows-latest
+    steps:
+    - run: date
+  dependent_job1:
+    needs: [job1, job2]
+    runs-on: ubuntu-latest
+    steps:
+    - run: date
